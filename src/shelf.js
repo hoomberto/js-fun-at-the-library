@@ -30,7 +30,7 @@ function searchShelf(shelf, book) {
   var inShelf;
   // For loop that iterates through the shelf array
   for (var i = 0; i < shelf.length; i++) {
-    // If the variable index selection of that shelf's title key inspect
+    // If the variable index selection of that shelf's title value 
     // is strictly equal to the argument for the book parameter
     if (shelf[i].title === book) {
       // set inShelf to true;
