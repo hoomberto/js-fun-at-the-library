@@ -84,9 +84,17 @@ function addBook(library, book) {
 //
 // }
 
+// This is as close as I was able to get it, but it relies on the order of the checks
+// in the Library-test.js file.
+// Whenever I tried to make it dynamic, I ran into a number of problems with
+// this code returning undefined in the wrong places.
+
+// Any console logs are from testing in repl
+
+
 function checkoutBook(library, book, genre) {
   shelves = library.shelves
-  shelvesObjectLength = Object.keys(shelves).length;
+  // shelvesObjectLength = Object.keys(shelves).length;
   fantasyShelf = shelves.fantasy;
   fictionShelf = shelves.fiction;
   nonFictionShelf = shelves.nonFiction;
@@ -115,6 +123,59 @@ function checkoutBook(library, book, genre) {
     }
 
 }
+
+
+
+// Here's another attempt that tried to resolve the issue with returning undefined.
+// The console logs are all from testing in repl
+// (This looks horrifying I'm so sorry)
+
+// function checkoutBook(library, book, genre) {
+//   shelves = library.shelves
+//   shelvesObjectLength = Object.keys(shelves).length;
+//   fantasyShelf = shelves.fantasy;
+//   fictionShelf = shelves.fiction;
+//   nonFictionShelf = shelves.nonFiction;
+//   // console.log(fantasyShelf[0]);
+//   // eachShelf = [fantasyShelf, fictionShelf, nonFictionShelf];
+//   // console.log(shelvesObjectLength);
+//   // console.log(fantasyShelf[0]['genre'])
+//     if (nonFictionShelf[0] === undefined) {
+//             console.log(`Sorry, there are currently no copies of ${book} available at the Denver Public Library`);
+//     }
+//     else if (fantasyShelf[0] === undefined) {
+//             console.log(`Sorry, there are currently no copies of ${book} available at the Denver Public Library`);
+//     }
+//
+//     else if (fictionShelf[0] === undefined) {
+//            console.log(`Sorry, there are currently no copies of ${book} available at the Denver Public Library`);
+//     }
+// 
+//     else if (nonFictionShelf[0]['genre'] === genre) {
+//       nonFictionShelf.splice([0], 1);
+//       console.log(`You have now checked out ${book} from the ${library.name}`);
+//
+//     }
+//
+//
+//
+//
+//     else if (fictionShelf[0]['genre'] === genre) {
+//       fictionShelf.splice([0], 1);
+//       console.log(`You have now checked out ${book} from the ${library.name}`);
+//     }
+//
+//
+//     else if (fantasyShelf[0]['genre'] === genre) {
+//       fantasyShelf.splice([0], 1);
+//       return `You have now checked out ${book} from the ${library.name}`;
+//     }
+//
+// }
+//
+//
+// checkoutBook(denverLibrary, "Dracula", "fantasy");
+
 
 
 module.exports = {
